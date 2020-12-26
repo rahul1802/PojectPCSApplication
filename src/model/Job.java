@@ -95,6 +95,12 @@ public class Job {
 	public void setActive(String active) {
 		this.active = active;
 	}
+	@Override
+	public String toString() {
+		return "Job [jobId=" + jobId + ", jobTitle=" + jobTitle + ", jobDescription=" + jobDescription
+				+ ", companyName=" + companyName + ", location=" + location + ", keySkill=" + keySkill + ", salary="
+				+ salary + ", experience=" + experience + ", active=" + active + "]";
+	}
 	
 	
 

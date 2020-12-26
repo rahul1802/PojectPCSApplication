@@ -95,6 +95,7 @@ public void updateEmployee() {
 		if(password.equals(confirmpassword)) {
 			emp.setPassword(password);
 			emp.setEmail(email);
+			emp.setEmployeeId(id);
 			empController.updateEmployee(emp);
 		}
 		else {

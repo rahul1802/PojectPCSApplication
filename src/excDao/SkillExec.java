@@ -69,5 +69,71 @@ public void addSkill()
 	}
 skillController.addSkill(s);
 }
+public void updateSkill() {
+	try {
+		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		int id;
+		String SkillName, SkillDescription, confirmName;
+		System.out.println("Enter SkillId whose record you want to update:");
+		id=Integer.parseInt(reader.readLine());
+		Skill s=skillController.getSkillByID(id);
+		System.out.println("Enter your new Skill:");
+		SkillName=reader.readLine();
+		System.out.println("Enter Skill Description:");
+		SkillDescription=reader.readLine();
+		System.out.println("Re-enter same Skill to confirm:");
+		confirmName=reader.readLine();
+		if(SkillName.equals(confirmName)) {
+			s.setSkillName(SkillName);
+			s.setSkillDescription(SkillDescription);
+			s.setSkillId(id);
+		skillController.updateSkill(s);
+		}
+		else {
+			System.out.println("Sorry! you have entered different SkillName!");
+		}
+	}
+	catch(IOException ex) {
+		System.out.println(ex.getMessage());
+	}
+}
+public void deactiveSkill() {
+	try {
+		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		int id;
+		System.out.println("Enter SkillId whose record you want to deactivate:");
+		id=Integer.parseInt(reader.readLine());
+		Skill s=skillController.getSkillByID(id);
+		skillController.deactivateSkill(s);
+	}
+	catch(IOException ex) {
+		System.out.println(ex.getMessage());
+	}
+}
+public void activeSkill() {
+	try {
+		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		int id;
+		System.out.println("Enter SkillId whose record you want to activate:");
+		id=Integer.parseInt(reader.readLine());
+		Skill s=skillController.getSkillByID(id);
+		skillController.activateSkill(s);
+	}
+	catch(IOException ex) {
+		System.out.println(ex.getMessage());
+	}
+}
+public void deleteSkill() {
+	try {
+		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		int id;
+		System.out.println("Enter SkillId whose record you want to delete:");
+		id=Integer.parseInt(reader.readLine());
+	skillController.deleteSkill(id);
+	}
+	catch(IOException ex) {
+		System.out.println(ex.getMessage());
+	}
+}
 
 }

@@ -4,10 +4,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import config.JDBCConnection;
-import excDao.SkillExec;
+import excDao.EmpJobExec;
 
-
-public class TestAppSkill {
+public class TestAppEmpJob {
 	public void TestConnection()
 	{
 		try
@@ -27,46 +26,38 @@ public class TestAppSkill {
 		}
 	}
 	public void processMenu() {
-		SkillExec obj=new SkillExec();
+		EmpJobExec obj=new EmpJobExec();
 		Scanner sc=new Scanner(System.in);
 		int option=0;
 		char ch='y';
 		do {
 			System.out.println("----------CRUD Operation-----------");
-			System.out.println("1. View all Skill");
-			System.out.println("2. View single Skill");
-			System.out.println("3. Add Skill");
-			System.out.println("4. Update Skill");
-			System.out.println("5. Delete Skill");
-			System.out.println("6. Deactivate Skill");
-			System.out.println("7. Activate Skill");
-			System.out.println("8. Quit");
+			System.out.println("1. View all EmpJob Details");
+			System.out.println("2. View single EmpJobDetails");
+			System.out.println("3. Add EmpJob");
+			System.out.println("4. Update EmpJob");
+			System.out.println("5. Delete EmpJob");
+			System.out.println("6. Quit");
 			System.out.println("___________________");
 			System.out.println("Enter your choice:");
 			option=sc.nextInt();
 			switch(option) {
 				case 1:
-					obj.getAllSkill();
+					obj.getAllEmpJob();
 					break;
 				case 2:
-					obj.getSkillById();
+					obj.getEmpJobById();
 					break;
 				case 3:
-					obj.addSkill();
+					obj.addEmpJob();
 					break;
 				case 4:
-					obj.updateSkill();
+					obj.updateEmpJob();;
 					break;
 				case 5:
-					obj.deleteSkill();
+					obj.deleteEmpJob();
 					break;
 				case 6:
-					obj.deactiveSkill();
-					break;
-				case 7:
-					obj.activeSkill();
-					break;
-				case 8:
 					System.exit(0);
 					break;
 				default:
@@ -78,10 +69,10 @@ public class TestAppSkill {
 		}while(ch=='y' || ch=='Y');
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		TestAppSkill s=new TestAppSkill();
-		s.TestConnection();
-		s.processMenu();
+
+		TestAppEmpJob test=new TestAppEmpJob();
+		test.TestConnection();
+		test.processMenu();
 
 	}
 

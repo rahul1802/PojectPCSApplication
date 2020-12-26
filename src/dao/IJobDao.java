@@ -6,9 +6,10 @@ import model.Job;
 
 public interface IJobDao {
 	List<Job>getAllJob();
-	void addEmployee(Job j);
-	Job getEmployeeByID(int id);
-	void updteEmployee(Job j);
-	void deactivateEmployee(int id);
-	void deleteEmployee(int id);
+	void addJob(Job j);
+	Job getJobByID(int id);
+	void updateJob(Job j);
+	void deactivateJob(Job j);
+	void activateJob(Job j);
+	void deleteJob(int id);
 }

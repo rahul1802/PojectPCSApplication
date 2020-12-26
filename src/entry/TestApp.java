@@ -84,14 +84,7 @@ public class TestApp {
 		TestApp test=new TestApp();
 		test.TestConnection();
 		test.processMenu();
-		//EmployeeExec obj= new EmployeeExec();
-		//obj.addEmployee();
-		//obj.getAllEmployees();
-		//obj.getEmployeesById();
-		//SkillExec obj =new SkillExec();
-		//obj.addSkill();
-		//obj.getAllSkill();
-		//obj.getSkillById();
+		
 		
 		
 		

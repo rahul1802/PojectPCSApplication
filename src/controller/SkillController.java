@@ -4,6 +4,7 @@ import java.util.List;
 
 import dao.ISkillDao;
 import daoImpl.SkillDaoImpl;
+import model.Employee;
 import model.Skill;
 
 
@@ -27,5 +28,16 @@ public class SkillController {
 		  Skill s=skillDao.getSkillByID(id);
 		  return s;
 	  }
-
+	  public void updateSkill(Skill s) {
+		  skillDao.updateSkill(s);
+	  }
+	  public void deleteSkill(int id) {
+			skillDao.deleteSkill(id);
+		}
+	  public void deactivateSkill(Skill s) {
+			skillDao.deactivateSkill(s);
+		}
+		public void activateSkill(Skill s) {
+		skillDao.activateSkill(s);
+		}
 }

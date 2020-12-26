@@ -49,6 +49,11 @@ public String getRecruited() {
 public void setRecruited(String recruited) {
 	this.recruited = recruited;
 }
+@Override
+public String toString() {
+	return "EmpJob [ejId=" + ejId + ", employeeId=" + employeeId + ", jobId=" + jobId + ", recruited=" + recruited
+			+ "]";
+}
 
 
 }

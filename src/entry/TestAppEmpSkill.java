@@ -4,10 +4,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import config.JDBCConnection;
-import excDao.SkillExec;
+import excDao.EmpSkillExec;
 
-
-public class TestAppSkill {
+public class TestAppEmpSkill {
 	public void TestConnection()
 	{
 		try
@@ -27,46 +26,38 @@ public class TestAppSkill {
 		}
 	}
 	public void processMenu() {
-		SkillExec obj=new SkillExec();
+		EmpSkillExec obj=new EmpSkillExec();
 		Scanner sc=new Scanner(System.in);
 		int option=0;
 		char ch='y';
 		do {
 			System.out.println("----------CRUD Operation-----------");
-			System.out.println("1. View all Skill");
-			System.out.println("2. View single Skill");
-			System.out.println("3. Add Skill");
-			System.out.println("4. Update Skill");
-			System.out.println("5. Delete Skill");
-			System.out.println("6. Deactivate Skill");
-			System.out.println("7. Activate Skill");
-			System.out.println("8. Quit");
+			System.out.println("1. View all EmpSkill Details");
+			System.out.println("2. View single EmpSkill Details");
+			System.out.println("3. Add EmpSkill");
+			System.out.println("4. Update EmpSkill");
+			System.out.println("5. Delete EmpSkill");
+			System.out.println("6. Quit");
 			System.out.println("___________________");
 			System.out.println("Enter your choice:");
 			option=sc.nextInt();
 			switch(option) {
 				case 1:
-					obj.getAllSkill();
+					obj.getAllEmpSkill();
 					break;
 				case 2:
-					obj.getSkillById();
+					obj.getEmpSkillById();
 					break;
 				case 3:
-					obj.addSkill();
+					obj.addEmpSkill();
 					break;
 				case 4:
-					obj.updateSkill();
+					obj.updateEmpSkill();;
 					break;
 				case 5:
-					obj.deleteSkill();
+					obj.deleteEmpSkill();
 					break;
 				case 6:
-					obj.deactiveSkill();
-					break;
-				case 7:
-					obj.activeSkill();
-					break;
-				case 8:
 					System.exit(0);
 					break;
 				default:
@@ -76,12 +67,12 @@ public class TestAppSkill {
 			System.out.println("Do you want to continue(y/n)?");	
 			ch=sc.next().charAt(0);
 		}while(ch=='y' || ch=='Y');
+		
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		TestAppSkill s=new TestAppSkill();
-		s.TestConnection();
-		s.processMenu();
+		TestAppEmpSkill test=new TestAppEmpSkill();
+		test.TestConnection();
+		test.processMenu();
 
 	}
 
