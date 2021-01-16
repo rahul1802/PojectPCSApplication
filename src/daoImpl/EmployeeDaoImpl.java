@@ -14,6 +14,33 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 	{
 		conn=JDBCConnection.getDBConnection();
 	}
+	public Employee checkLogin(String userId, String password) {
+		Employee emp=new Employee();
+		
+		try {
+			String query="select * from Employee where userId=? and password=?";
+			PreparedStatement pst=conn.prepareStatement(query);
+			pst.setString(1, userId);
+			pst.setString(2, password);
+			ResultSet rst=pst.executeQuery();
+			if(rst!=null) {
+				if(rst.next()) {
+					emp.setEmployeeId(rst.getInt(1));
+					emp.setFirstName(rst.getString(2));
+					emp.setLastName(rst.getString(3));
+					emp.setEmail(rst.getString(4));
+					emp.setUserId(rst.getString(5));
+					emp.setPassword(rst.getString(6));
+					emp.setRole(rst.getString(7));
+					emp.setGender(rst.getString(8));
+					emp.setActive(rst.getString(9));
+				}
+			}
+		}catch(SQLException ex) {
+			System.out.println(ex);
+		}
+		return emp;
+	}
 	public List<Employee> getAllEmployees() {
 		List<Employee> empList =new ArrayList<Employee>();
 		try
@@ -22,7 +49,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 			Statement stmt=conn.createStatement();
 			ResultSet rst=stmt.executeQuery(query);
 			if(rst!=null) 
-			{
+			{ 
 				
 				while(rst.next())
 				{
@@ -33,8 +60,8 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 					emp.setEmail(rst.getString(4));
 					emp.setUserId(rst.getString(5));
 					emp.setPassword(rst.getString(6));
-					emp.setGender(rst.getString(7));
-					emp.setRole(rst.getString(8));
+					emp.setRole(rst.getString(7));
+					emp.setGender(rst.getString(8));
 					emp.setActive(rst.getString(9));
 					empList.add(emp);
 				}
@@ -91,7 +118,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 			if(rst!=null) 
 			{
 				
-				while(rst.next())
+				if(rst.next())
 				{
 					emp.setEmployeeId(rst.getInt(1));
 					emp.setFirstName(rst.getString(2));
@@ -99,8 +126,8 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 					emp.setEmail(rst.getString(4));
 					emp.setUserId(rst.getString(5));
 					emp.setPassword(rst.getString(6));
-					emp.setGender(rst.getString(7));
-					emp.setRole(rst.getString(8));
+					emp.setRole(rst.getString(7));
+					emp.setGender(rst.getString(8));
 					emp.setActive(rst.getString(9));
 				}
 			}

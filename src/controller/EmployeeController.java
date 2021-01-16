@@ -12,6 +12,10 @@ public class EmployeeController {
   {
 	  empDao=new EmployeeDaoImpl();
   }
+  public Employee checkLogin(String userId, String password) {
+		Employee emp=empDao.checkLogin(userId, password);
+		return emp;
+	}
   public List<Employee> getAllEmployees()
   {
 	  List<Employee> empList=empDao.getAllEmployees();
@@ -25,7 +29,7 @@ public class EmployeeController {
   {
 	  Employee emp=empDao.getEmployeeByID(id);
 	  return emp;
-  }
+  } 
   public void updateEmployee(Employee e) {
 		empDao.updateEmployee(e);
 	}
@@ -38,4 +42,5 @@ public class EmployeeController {
 	public void activateEmployee(Employee e) {
 		empDao.activateEmployee(e);
 	}
+	
 }

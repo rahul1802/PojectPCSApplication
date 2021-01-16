@@ -6,7 +6,7 @@ import java.util.Scanner;
 import config.JDBCConnection;
 import excDao.EmployeeExec;
 import excDao.SkillExec;
-
+ 
 public class TestApp {
 	public void TestConnection()
 	{

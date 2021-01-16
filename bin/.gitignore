@@ -1,6 +1,3 @@
-/dao/
-/controller/
-/excDao/
+/view/
 /model/
 /daoImpl/
-/entry/

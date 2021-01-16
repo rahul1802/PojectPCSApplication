@@ -17,7 +17,7 @@ public class Employee {
 	}
 	//parameterized constructor method will all fields
 	public Employee(int employeeId, String firstName, String lastName, String email, String userId, String password,
-			String gender, String role, String active) {
+			String role, String gender, String active) {
 		super();
 		this.employeeId = employeeId;
 		this.firstName = firstName;
@@ -30,8 +30,8 @@ public class Employee {
 		this.active = active;
 	}
 	//parameterized constructor method without employeeid and active fields
-	public Employee(String firstName, String lastName, String email, String userId, String password, String gender,
-			String role) {
+	public Employee(String firstName, String lastName, String email, String userId, String password, String role,
+			String gender ,String active) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -40,6 +40,7 @@ public class Employee {
 		this.password = password;
 		this.gender = gender;
 		this.role = role;
+		this.active=active;
 	}
 	public int getEmployeeId() {
 		return employeeId;
@@ -98,7 +99,7 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + ", userId=" + userId + ", password=" + password + ", gender=" + gender + ", role=" + role
+				+ email + ", userId=" + userId + ", password=" + password + ", role=" + role + ", gender=" + gender
 				+ ", active=" + active + "]";
 	}
 	
