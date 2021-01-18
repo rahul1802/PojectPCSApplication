@@ -1,14 +1,15 @@
 package view;
+import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 import java.sql.Connection;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import controller.EmployeeController;
 import model.Employee;
@@ -16,9 +17,7 @@ import model.Employee;
 
 public class PMEViewFrame  extends JFrame{
 	Container container;
-	JLabel lFirstname,lLastname,lEmail,lUsername,lPassword,lRole,lGender;
-	JTextField tFirstname,tLastname,tEmail,tUsername,tRole,tGender;
-	JPasswordField tPassword;
+	  JButton hButton;
 	EmployeeController empController=null;
 	Connection conn=null;
 	public PMEViewFrame()
@@ -26,7 +25,17 @@ public class PMEViewFrame  extends JFrame{
 		DefaultTableModel model = new DefaultTableModel();
 	    container = getContentPane();
 	    JTable jtbl = new JTable(model);
-	    container.setLayout(new FlowLayout(FlowLayout.CENTER));
+	    hButton=new JButton("PmeHomeFrame");
+	    hButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				callDispose();
+				new PmeHomeFrame();
+				
+			}
+		});
+	    container.setLayout(new BorderLayout());
 	    	model.addColumn("EmployeeID");
 	        model.addColumn("FirstName");
 	        model.addColumn("LastName");
@@ -46,7 +55,8 @@ public class PMEViewFrame  extends JFrame{
 	        }
 	    	
 	        JScrollPane pg = new JScrollPane(jtbl);
-	        container.add(pg);
+	        container.add(pg,BorderLayout.CENTER);
+	        container.add(hButton,BorderLayout.SOUTH);
 	        this.pack();
 	        this.setTitle("View Details");
 	        this.setSize(900, 300);
@@ -55,7 +65,10 @@ public class PMEViewFrame  extends JFrame{
 	        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    }
 		
-	
+	public void callDispose() {
+		this.dispose();
+	}
+
 
 }
 

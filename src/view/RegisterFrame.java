@@ -1,13 +1,16 @@
 package view;
-import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.JPanel;
+
+import controller.EmployeeController;
+import model.Employee;
 
 public class RegisterFrame extends JFrame{
 	Container container;
@@ -16,7 +19,7 @@ public class RegisterFrame extends JFrame{
 	JTextField tFirstname,tLastname,tEmail,tUsername,tRole,tGender;
 	JPasswordField tPassword;
 	JButton bRegister;
-
+	EmployeeController empController=null;
 	public RegisterFrame() 
 	{
 		container=getContentPane();
@@ -35,12 +38,46 @@ public class RegisterFrame extends JFrame{
 		tRole=new JTextField();
 		tGender=new JTextField();
 		bRegister=new JButton("Register");
-		//setLayoutManager();
+		empController=new EmployeeController();
+		bRegister.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String Firstname,Lastname,Email,Username,Password,Role,Gender;
+				Firstname=tFirstname.getText();
+				Lastname=tLastname.getText();
+				Email=tEmail.getText();
+				Username=tUsername.getText();
+				Password=new String(tPassword.getPassword());
+				Role=tRole.getText();
+				Gender=tGender.getText();
+			Employee emp=new Employee();
+			emp.setFirstName(Firstname);
+			emp.setLastName(Lastname);
+			emp.setEmail(Email);
+			emp.setUserId(Username);
+			emp.setPassword(Password);
+			emp.setRole(Role);
+			emp.setGender(Gender);
+			if(Role.equals("HRA"))
+			{
+				emp.setActive("Active");
+			}
+			else
+			{
+				emp.setActive("Deactive");
+			}
+			empController.addEmployee(emp);
+				callDispose();
+				new LoginFrame();
+			}
+		});
+		setLayoutManager();
 		setLocationAndSize();
 		addComponentsToContainer();
 		this.setTitle("Registeration Form");
 		this.setVisible(true);
-		this.setSize(900,900);
+		this.setSize(500,350);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		//setResizable(false);
 		
@@ -52,21 +89,21 @@ public class RegisterFrame extends JFrame{
 	}
 	public void setLocationAndSize()
 	{
-		lFirstname.setBounds(50, 300, 100, 30);
-		lLastname.setBounds(50, 350, 100, 30);
-		lEmail.setBounds(50, 350, 100, 30);
-		lUsername.setBounds(50, 450, 100, 30);
-		lPassword.setBounds(50, 550, 100, 30);
-		lRole.setBounds(50, 650, 100, 30);
-		lGender.setBounds(50, 750, 100, 30);
-		tFirstname.setBounds(250, 150, 150, 30);
-		tLastname.setBounds(250, 250, 150, 30);
-		tEmail.setBounds(250, 350, 150, 30);
-		tUsername.setBounds(250, 450, 150, 30);
-		tPassword.setBounds(250, 550, 150, 30);
-		tRole.setBounds(250, 650, 150, 30);
-		tGender.setBounds(520, 750, 150, 30);
-		bRegister.setBounds(50, 800, 200, 50);
+		lFirstname.setBounds(150, 10, 80, 30);
+		lLastname.setBounds(150, 40, 80, 30);
+		lEmail.setBounds(150, 70, 80, 30);
+		lUsername.setBounds(150, 100, 80, 30);
+		lPassword.setBounds(150, 140, 80, 30);
+		lRole.setBounds(150, 170, 80, 30);
+		lGender.setBounds(150, 200, 80, 30);
+		tFirstname.setBounds(250, 10, 150, 20);
+		tLastname.setBounds(250, 40, 150, 20);
+		tEmail.setBounds(250, 70, 150, 20);
+		tUsername.setBounds(250, 100, 150, 20);
+		tPassword.setBounds(250, 140, 150, 20);
+		tRole.setBounds(250, 170, 150, 20);
+		tGender.setBounds(250, 200, 150, 20);
+		bRegister.setBounds(200, 240, 100, 20);
 	}
  public void addComponentsToContainer()
  {
