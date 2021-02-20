@@ -29,7 +29,7 @@ public class HraHomeFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				callDispose();
-				new ActivateFrame();
+				new ActivateHraFrame();
 				
 			}
 		});

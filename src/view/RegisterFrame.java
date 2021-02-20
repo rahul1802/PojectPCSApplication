@@ -79,7 +79,7 @@ public class RegisterFrame extends JFrame{
 		this.setVisible(true);
 		this.setSize(500,350);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		//setResizable(false);
+		setResizable(false);
 		
 	}
 	public void setLayoutManager()

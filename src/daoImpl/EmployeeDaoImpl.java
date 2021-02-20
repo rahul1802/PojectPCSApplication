@@ -175,7 +175,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 				System.out.println("Employee deactivated...");
 			}
 			else {
-				System.out.println("updation failed...");
+				System.out.println("Deactivation failed...");
 			}
 		}
 		catch(SQLException ex) {
@@ -195,7 +195,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 				System.out.println("Employee Activated...");
 			}
 			else {
-				System.out.println("updation failed...");
+				System.out.println("Activation failed...");
 			}
 		}
 		catch(SQLException ex) {

@@ -28,7 +28,7 @@ public class PmeHomeFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				callDispose();
-				new ActivateFrame();
+				new ActivatePMEFrame();
 				
 			}
 		});
